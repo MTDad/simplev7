@@ -7,7 +7,7 @@ minetest.register_biome({
 	name = "forest",
 	node_top = "default:dirt_with_grass",		depth_top = 1,
 	node_filler = "default:dirt",			depth_filler = 3,
-	height_min = 3,					height_max =40,
+	height_min = 2,					height_max =40,
 	heat_point = 50,				humidity_point = 80,
 })
 
@@ -15,7 +15,7 @@ minetest.register_biome({
 	name = "meadow",
 	node_top = "default:dirt_with_grass",		depth_top = 1,
 	node_filler = "default:dirt",			depth_filler = 3,
-	height_min = 3,					height_max = 40,
+	height_min = 2,					height_max = 40,
 	heat_point = 50,				humidity_point = 30,
 })
 
@@ -23,20 +23,21 @@ minetest.register_biome({
 	name = "beach",
 	node_top = "default:sand",			depth_top = 2,
 	height_min = -500,				height_max = 2,
+	heat_point = 40,				humidity_point = 50,
 })
 
 minetest.register_biome({
 	name = "tropical_beach",
 	node_top = "default:sand",			depth_top = 5,
-	height_min = -500, 				height_max = 2,
-	heat_point = 80.0,
+	height_min = -500, 				height_max = 3,
+	heat_point = 80.0,				humidity_point = 50,
 })
 
 minetest.register_biome({
 	name = "jungle",
 	node_top = "default:dirt_with_grass",		depth_top = 1,
 	node_filler = "default:dirt",			depth_filler = 3,
-	height_min = 3,					height_max = 40,
+	height_min = 2,					height_max = 40,
 	heat_point = 80,				humidity_point = 80,
 })
 
@@ -44,7 +45,7 @@ minetest.register_biome({
 	name = "desert",
 	node_top = "default:desert_sand",		depth_top = 3,
 	node_filler = "default:desert_stone",		depth_filler = 57,
-	height_min = 3,					height_max = 40,
+	height_min = 2,					height_max = 40,
 	heat_point = 80,				humidity_point = 20,
 })
 
@@ -66,16 +67,24 @@ minetest.register_biome({
 	name = "dune",
 	node_top = "default:sand",			depth_top = 3,
 	node_filler = "default:dirt",			depth_filler = 2,
-	height_min = 3,					height_max = 40,
-	heat_point = 10,				humidity_point = 5,
+	height_min = 1,					height_max = 30,
+	heat_point = 10,				humidity_point = 10,
 })
 
 minetest.register_biome({
 	name = "prairie",
 	node_top = "default:dirt_with_grass",		depth_top = 1,
 	node_filler = "default:dirt",			depth_filler = 4,
-	height_min = 32,				height_max = 40,
-	heat_point = 20,				humidity_point = 20,
+	height_min = 10,				height_max = 40,
+	heat_point = 40,				humidity_point = 20,
+})
+
+minetest.register_biome({
+	name = "papyrus",
+	node_top = "default:dirt_with_grass",		depth_top = 1,
+	node_filler = "default:dirt",			depth_filler = 2,
+	height_min = 1,					height_max = 1,
+	heat_point = 60,				humidity_point = 50,
 })
 
 if submoretrees and minetest.get_modpath("moretrees") ~= nil then
@@ -152,7 +161,7 @@ minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_grass",
 	sidelen = 16,
-	fill_ratio = 0.047,
+	fill_ratio = 0.057,
 	biomes = {"jungle"},
 	flags = "place_center_x, place_center_z",
 	schematic = minetest.get_modpath("simplev7").."/schematics/jungletree.mts",
@@ -163,7 +172,7 @@ end
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:snowblock",
-	sidelen = 8,
+	sidelen = 16,
 	fill_ratio = 0.047,
 	flags = "place_center_x, place_center_z",
 	biomes = {"mountain"},
@@ -174,7 +183,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:dirt_with_grass",
 	sidelen = 16,
-	fill_ratio = 0.07,
+	fill_ratio = 0.17,
 	biomes = {"jungle"},
 	decoration = {"default:junglegrass"},
 })
@@ -186,6 +195,15 @@ minetest.register_decoration({
 	noise_params = {offset = 0, scale = 1, spread = {x = 80, y = 80, z = 80}, seed = 983240, octaves = 4, persist = 0.55},
 	biomes = {"dune"},
 	decoration = "default:grass_5",
+})
+
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "default:dirt_with_grass",
+	sidelen = 16,
+	fill_ratio = 0.17,
+	biomes = {"papyrus"},
+	schematic = minetest.get_modpath("simplev7").."/schematics/papyrus.mts",
 })
 
 minetest.register_abm({
