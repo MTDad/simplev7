@@ -1,4 +1,5 @@
 -- Simple V7 for Minetest Game in Mapgen v7 by MTDad
+minetest.clear_registered_biomes()
 
 submoretrees = true
 -- set this to true if you want to replace the default trees with moretrees versions.
